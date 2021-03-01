@@ -5,17 +5,17 @@
         <img height="32px" src="../assets/logos/logo.png">
       </div>
       <a-menu theme="dark" :default-selected-keys="['1']" mode="inline" @click="SidebarClick">
-        <a-menu-item key="/home/test">
+        <a-menu-item key="mcm">
           <a-icon type="pie-chart"/>
           <span>公司状态</span>
         </a-menu-item>
-        <a-menu-item key="test">
+        <a-menu-item key="bumen">
           <a-icon type="desktop"/>
           <span>部门管理</span>
         </a-menu-item>
         <a-sub-menu key="sub1">
           <span slot="title"><a-icon type="user"/><span>员工管理</span></span>
-          <a-menu-item key="/home/allUsers">
+          <a-menu-item key="allUsers">
             查询所有员工
           </a-menu-item>
           <a-menu-item key="4">
@@ -78,6 +78,8 @@
       </a-layout-footer>
     </a-layout>
   </a-layout>
+
+
 </template>
 <script>
 
@@ -87,7 +89,7 @@ export default {
   data() {
     return {
       collapsed: false,
-      user: JSON.parse( localStorage.getItem("user"))
+      user: JSON.parse(localStorage.getItem("user"))
     };
   },
   methods: {
