@@ -19,15 +19,15 @@ export default {
     return {
       dataSource: [
         {
-          // key: '0',
-          // mcUserNiName: '张三',
-          // mcLeaveDay: '32',
-          // mcLeaveName: 'London, Park Lane no. 0',
-          // mcLeaveReason: 'London, Park Lane no. 0',
-          // mcLeaveStartTime: 'London, Park Lane no. 0',
+          key: '0',
+          mcUserNiName: '-----',
+          mcLeaveDay: '-----',
+          mcLeaveName: '-----',
+          mcLeaveReason: '-----',
+          mcLeaveStartTime: '-----',
         },
       ],
-      dataTask: [{}],
+      dataTask: [],
       columns: [
         {
           title: '请假人',

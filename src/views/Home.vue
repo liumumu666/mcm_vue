@@ -70,8 +70,8 @@
       </a-layout-header>
       <a-layout-content style="margin: 0 16px">
         <a-breadcrumb id="local">
-          <a-breadcrumb-item>当前位置</a-breadcrumb-item>
-          <a-breadcrumb-item>员工信息管理</a-breadcrumb-item>
+<!--          <a-breadcrumb-item>当前位置</a-breadcrumb-item>-->
+          <a-breadcrumb-item>{{nowLocation}}</a-breadcrumb-item>
         </a-breadcrumb>
         <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
           <router-view/>
@@ -92,6 +92,7 @@ import axios from "axios";
 export default {
   data() {
     return {
+      nowLocation: 'MCM后台管理系统',
       collapsed: false,
       user: JSON.parse(localStorage.getItem("user"))
     };
