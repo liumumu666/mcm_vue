@@ -1,45 +1,49 @@
 <template>
   <a-layout id="components-layout-demo-side" style="min-height: 100vh">
     <a-layout-sider v-model="collapsed" collapsible>
-      <div class="logo" @click="$router.push('/home')">
+      <div class="logo" @click="$router.push('/mcm')">
         <img height="32px" src="../assets/logos/logo.png">
       </div>
-      <a-menu theme="dark" :default-selected-keys="['1']" mode="inline" @click="SidebarClick">
+      <a-menu theme="dark" :default-selected-keys="['mcm']" mode="inline" @click="SidebarClick">
         <a-menu-item key="mcm">
           <a-icon type="pie-chart"/>
-          <span>公司状态</span>
+          <span>公司风采</span>
         </a-menu-item>
-        <a-menu-item key="bumen">
+        <a-menu-item key="myTask"  v-if="user.mcUserJob!='4'">
+          <a-icon type="team"/>
+          <span>待我审核</span>
+        </a-menu-item>
+        <a-menu-item key="allJobs" v-if="user.mcUserJob!='4'" >
           <a-icon type="desktop"/>
           <span>部门管理</span>
         </a-menu-item>
-        <a-sub-menu key="sub1">
+        <a-sub-menu key="sub1"  v-if="user.mcUserJob!='4'">
           <span slot="title"><a-icon type="user"/><span>员工管理</span></span>
           <a-menu-item key="allUsers">
             查询所有员工
           </a-menu-item>
-          <a-menu-item key="4">
+          <a-menu-item key="allJobs">
             查询所有部门
           </a-menu-item>
-          <a-menu-item key="5">
-            查询所有经理
+          <a-menu-item key="addUser">
+            添加一个职员
           </a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="sub2">
           <span slot="title"><a-icon type="team"/><span>交互系统</span></span>
-          <a-menu-item key="6">
+          <a-menu-item key="application">
             请假申请
           </a-menu-item>
-          <a-menu-item key="8">
-            出差申请
+          <a-menu-item key="myLeave">
+            查看我的申请
           </a-menu-item>
-          <a-menu-item key="9">
+          <a-menu-item key="none">
             报销申请
           </a-menu-item>
         </a-sub-menu>
-        <a-menu-item key="10">
+        <a-menu-item key="show">
           <a-icon type="file"/>
-          <span>文件信息</span>
+          <span>公司营业执照</span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -95,8 +99,8 @@ export default {
   methods: {
     handleMenuClick(e) {
       console.log('click', e);
-      axios.get("/hello").then((data) => {
-        this.username = data.data;
+      axios.get("/logout").then(()=>{
+        this.$router.push("/")
       })
 
     },

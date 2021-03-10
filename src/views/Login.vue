@@ -47,7 +47,7 @@ export default {
             // 将用户信息存在本地
             localStorage.setItem("user", JSON.stringify(e.data));
             this.$router.push({
-              path: '/home'
+              path: '/mcm'
             });
           }).catch((e) => {
         console.log(e);

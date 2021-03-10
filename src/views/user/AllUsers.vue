@@ -1,5 +1,6 @@
 <template>
-  <a-table :data-source="data" :columns="columns" :rowKey="(record,index)=>{return index}">
+  <a-table :data-source="data" :columns="columns"
+           :rowKey="(record,index)=>{return index}">
     <div
         slot="filterDropdown"
         slot-scope="{ setSelectedKeys, selectedKeys, confirm, clearFilters, column }"
@@ -134,15 +135,15 @@ export default {
         },
         {
           title: '员工职位',
-          dataIndex: 'mcUserJob',
-          key: 'mcUserJob',
+          dataIndex: 'mcUserJobName',
+          key: 'mcUserJobName',
           scopedSlots: {
             filterDropdown: 'filterDropdown',
             filterIcon: 'filterIcon',
             customRender: 'customRender',
           },
           onFilter: (value, record) =>
-              record.mcUserJob
+              record.mcUserJobName
                   .toString()
                   .toLowerCase()
                   .includes(value.toLowerCase()),
